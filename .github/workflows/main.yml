@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout source code 
         uses: actions/checkout@v3
+      - name: Check IP
+        run: curl https://api.ipify.org
       - name: ACR build
         id: build-push-acr
         uses: azure/acr-build@v1
