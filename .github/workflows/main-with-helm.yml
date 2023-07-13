@@ -43,8 +43,8 @@ jobs:
         uses: azure/k8s-bake@v2
         with:
           renderEngine: "helm"
-          helmChart: '.azuredocs/azure-vote-front'
-          overrideFiles: './azure-vote-all-in-one-redis.yaml'
+          helmChart: 'azure-vote'
+          overrideFiles: 'azure-vote/azure-vote-all-in-one-redis.yaml'
           overrides: |
             replicas:2
           helm-version: "latest"
