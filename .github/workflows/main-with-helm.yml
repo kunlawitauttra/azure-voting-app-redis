@@ -43,8 +43,8 @@ jobs:
         uses: azure/k8s-bake@v2
         with:
           renderEngine: "helm"
-          helmChart: ${{ secrets.CHART_PATH }}
-          overrideFiles: ${{ secrets.CHART_OVERRIDE_PATH }}
+          helmChart: './azure-vote/'
+          overrideFiles: './azure-vote-all-in-one-redis.yaml'
           overrides: |
             replicas:2
           helm-version: "latest"
