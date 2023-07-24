@@ -22,12 +22,3 @@ jobs:
           folder: azure-vote
           branch: master
           tag: ${{ github.sha }}
-      - name: Deploy to local cluster
-        id: deploy-local
-        uses: actions/checkout@v3
-        with:
-          namespace: 'default'
-          manifests: |
-             azure-vote-all-in-one-redis.yaml
-          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
-          pull-images: false
