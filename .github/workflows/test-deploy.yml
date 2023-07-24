@@ -1,10 +1,10 @@
 name: deploy
 on: [workflow_dispatch]
 jobs:
-  redeploy-nginx:
+  test-deploy-app:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
-      - name: Redeploy nginx
+      - name: test-deploy
         run: |
-          kubectl apply -f deployment.yaml
+          kubectl apply -f azure-vote-all-in-one-redis.yaml
