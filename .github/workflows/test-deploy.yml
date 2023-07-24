@@ -1,15 +1,10 @@
 name: deploy
 on: [workflow_dispatch]
 jobs:
-  test-deploy:
+  redeploy-nginx:
     runs-on: self-hosted
     steps:
-      - name: Deploy to local cluster
-        id: deploy-aks
-        uses: Azure/k8s-deploy@v4
-        with:
-          namespace: 'default'
-          manifests: |
-             azure-vote-all-in-one-redis.yaml
-          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
-          pull-images: false
+      - uses: actions/checkout@v3
+      - name: Redeploy nginx
+        run: |
+          kubectl apply -f deployment.yaml
