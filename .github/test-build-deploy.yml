@@ -27,3 +27,11 @@ jobs:
         uses: azure/login@v1.4.3
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: deploy
+        run: |
+          kubectl apply -f azure-vote-all-in-one-redis.yaml
