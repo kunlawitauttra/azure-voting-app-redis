@@ -1,8 +1,5 @@
 name: Redeploy nginx after changes in deployment.yaml
-on:
-  push:
-    paths:
-      - azure-voting-app-redis/**
+on: [workflow_dispatch]
 
 jobs:
   redeploy-nginx:
