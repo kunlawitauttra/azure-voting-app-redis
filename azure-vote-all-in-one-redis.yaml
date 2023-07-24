@@ -58,7 +58,7 @@ spec:
       containers:
       - name: azure-vote-front
         image: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Aways
         ports:
         - containerPort: 80
         resources:
