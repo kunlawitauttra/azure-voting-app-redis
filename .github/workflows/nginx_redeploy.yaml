@@ -33,11 +33,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Redeploy nginx
         run: |
-          kubectl apply -f deployment.yaml
-
-      - name: Update Container Image
-        run: |
-          # Assuming you want to update the container image in the deployed manifest
-          # Replace placeholders with actual values for your registry and repository
-          kubectl set image deployment/azure-vote-front \
-            azure-vote-front=${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}
+          kubectl apply -f azure-vote-all-in-one-redis.yaml
+          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
+          pull-images: false
