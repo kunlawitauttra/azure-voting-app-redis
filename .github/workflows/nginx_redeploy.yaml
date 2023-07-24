@@ -31,8 +31,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
-      - name: Redeploy nginx
+      - name: deploy
         run: |
           kubectl apply -f azure-vote-all-in-one-redis.yaml
-          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
-          pull-images: false
