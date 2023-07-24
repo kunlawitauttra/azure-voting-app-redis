@@ -2,7 +2,7 @@ name: Redeploy nginx after changes in deployment.yaml
 on:
   push:
     paths:
-      - nginx/**
+      - azure-voting-app-redis/**
 
 jobs:
   redeploy-nginx:
