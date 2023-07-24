@@ -57,7 +57,8 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: test24acr.azurecr.io/azure-vote-front:v1
+        image: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
         resources:
