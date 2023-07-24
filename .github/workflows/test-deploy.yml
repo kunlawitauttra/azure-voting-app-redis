@@ -4,7 +4,13 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v3
-      - name: deploy
-        run: |
-          kubectl apply -f azure-vote-all-in-one-redis.yaml
+      - name: test-deploy
+        id: test-deploy-local
+        with:
+          namespace: 'default'
+          manifests: |
+             azure-vote-all-in-one-redis.yaml
+          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
+          pull-images: false
+
+
