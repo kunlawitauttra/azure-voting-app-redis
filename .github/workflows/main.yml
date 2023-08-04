@@ -8,7 +8,7 @@ on:
         type: choice
         options:
          - myAKSCluster-hk
-         - myAKSCluster-hk-sg
+         - myAKSCluster-sg
          - both
 jobs:
   build:
