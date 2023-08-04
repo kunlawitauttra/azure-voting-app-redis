@@ -40,6 +40,8 @@ jobs:
       - name: Set AKS context
         id: set-context
         uses: azure/aks-set-context@v3
+        with:
+          resource-group: '${{ secrets.resource_group }}'
       - name: Set cluster-name
         run: |
           if [ "${{ inputs.kube-cluster }}" == "myAKSCluster-hk" ]; then
