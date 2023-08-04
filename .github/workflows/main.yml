@@ -9,7 +9,6 @@ on:
         options:
          - myAKSCluster-hk
          - myAKSCluster-sg
-         - both
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -42,7 +41,7 @@ jobs:
         uses: azure/aks-set-context@v3
         with:
           resource-group: '${{ secrets.resource_group }}' 
-          cluster-name: '${{ secrets.cluster_name }}'
+          cluster-name: '${{ inputs.kube-cluster }}'
       - name: Setup kubectl
         id: install-kubectl
         uses: azure/setup-kubectl@v3
