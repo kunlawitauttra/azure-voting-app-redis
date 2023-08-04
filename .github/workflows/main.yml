@@ -1,5 +1,15 @@
 name: build_deploy_aks
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+    inputs:
+      kube-cluster:
+        description: 'Please select your cluster'
+        required: true
+        type: choice
+        options:
+         - myAKSCluster-hk
+         - myAKSCluster-hk-sg
+         - both
 jobs:
   build:
     runs-on: ubuntu-latest
