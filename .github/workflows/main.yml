@@ -9,6 +9,7 @@ on:
         options:
          - myAKSCluster-hk
          - myAKSCluster-sg
+         - both
 jobs:
   build:
     runs-on: ubuntu-latest
